@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  node:
+    image: node:current-alpine
+    volumes:
+      - .:/src
+    working_dir: /src
