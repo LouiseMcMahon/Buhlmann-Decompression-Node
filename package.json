@@ -1,0 +1,25 @@
+{
+  "name": "buhlmann-decompression-node",
+  "version": "0.0.1",
+  "description": "An implementation for the Buhlmann deco algorithm ZH-L16 with gradient factors in Node.JS for visualisation only",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LouiseMcMahon/Buhlmann-Decompression-Node.git"
+  },
+  "author": "Louise McMahon <louise@louisemcmahon.co.uk>",
+  "bugs": {
+    "url": "https://github.com/LouiseMcMahon/Buhlmann-Decompression-Node/issues"
+  },
+  "homepage": "https://github.com/LouiseMcMahon/Buhlmann-Decompression-Node#readme",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0"
+  }
+}
