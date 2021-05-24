@@ -46,5 +46,17 @@ module.exports = {
 		const r = inertGasFraction * ((targetDepth-currentDepth)/10)/duration;
 
 		return  p_alv + r * (duration - 1 / k) - (p_alv - gasCurrentPressure - r / k ) * Math.exp(-k * duration);
+	},
+
+	/**
+	 * Returns the current max ascent pressure for this tissue compartment
+	 * @param gradientFactor current gradient factor passed as a number between 0 and 1
+	 * @returns {number}
+	 */
+	buhlmannEquation: function (gradientFactor) {
+		const P = this.nitrogenPressure + this.heliumPressure;
+		const A = (this.nitrogenCoefficientA * this.nitrogenPressure + this.heliumCoefficientA * this.heliumPressure) / P;
+		const B = (this.nitrogenCoefficientB * this.nitrogenPressure + this.heliumCoefficientB * this.heliumPressure) / P;
+		return (P - A * gradientFactor) / (gradientFactor / B + 1 - gradientFactor);
 	}
 };
