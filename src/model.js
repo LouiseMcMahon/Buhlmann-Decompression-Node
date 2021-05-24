@@ -6,7 +6,6 @@ module.exports = {
 	gfHigh: undefined,
 	surfacePressure: undefined,
 	levels: [],
-	gas: [],
 	compartments: [],
 
 	/**
@@ -30,32 +29,33 @@ module.exports = {
 		this.gfHigh = gfHigh;
 		this.surfacePressure = surfacePressure;
 
+		this.populateCompartments();
+
 		return this;
 	},
 
-	addGas: function (oxygenPercent, heliumPercent){
-		if (isNaN(oxygenPercent) || isNaN(heliumPercent)) {
+	addleg: function (endDepth, timePeriod, nitrogenFraction, heliumFraction){
+		if (isNaN(endDepth) || isNaN(timePeriod) || isNaN(nitrogenFraction) || isNaN(heliumFraction)) {
 			throw new TypeError('Parameter is not a number');
 		}
 
-		this.gas.push([oxygenPercent, heliumPercent]);
+		if (nitrogenFraction > 1 || nitrogenFraction < 0){
+			throw new TypeError('Nitrogen gas faction must be between 0 and 1');
+		}
 
-		return this;
-	},
-
-	addLevel: function (endDepth, timePeriod){
-		if (isNaN(endDepth) || isNaN(timePeriod)) {
-			throw new TypeError('Parameter is not a number');
+		if (heliumFraction > 1 || heliumFraction < 0){
+			throw new TypeError('Helium gas faction must be between 0 and 1');
 		}
 
 		this.levels.push({
 			endDepth: endDepth,
 			timePeriod: timePeriod,
+			nitrogenFraction: nitrogenFraction,
+			heliumFraction: heliumFraction,
 			userInput: true
 		});
 
 		return this;
-
 	},
 
 	populateCompartments: function (){
