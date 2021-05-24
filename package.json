@@ -2,7 +2,7 @@
   "name": "buhlmann-decompression-node",
   "version": "0.0.1",
   "description": "An implementation for the Buhlmann deco algorithm ZH-L16 with gradient factors in Node.JS for visualisation only",
-  "main": "src/index.js",
+  "main": "src/model.js",
   "scripts": {
     "test": "mocha test",
     "eslint": "eslint .",
@@ -23,6 +23,8 @@
   "devDependencies": {
     "chai": "^4.3.4",
     "eslint": "^7.26.0",
-    "mocha": "^8.4.0"
+    "mocha": "^8.4.0",
+    "sinon": "^10.0.0",
+    "sinon-chai": "^3.6.0"
   }
 }
