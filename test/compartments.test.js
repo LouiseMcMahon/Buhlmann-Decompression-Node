@@ -37,5 +37,13 @@ describe('Compartment', function() {
 		});
 	});
 
+	describe('Buhlmann Equation Equation', function () {
+		it('Buhlmann equation should return the correct max pressure for that compartment', function () {
+			compartment.nitrogenPressure = 2.567490;
+			compartment.heliumPressure = 0;
+			expect(compartment.buhlmannEquation(0.3)).to.equal(1.6919779648048965);
+		});
+	});
+
 
 });
